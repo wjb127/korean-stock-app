@@ -34,7 +34,7 @@ const stockData = [
 ]
 
 export default function StockTradingInterface() {
-  const [activeTab, setActiveTab] = useState("해외잡고")
+  const [activeTab, setActiveTab] = useState("해외잔고")
   const [filterType, setFilterType] = useState("전체")
   const [currencyFilter, setCurrencyFilter] = useState("전체")
 
@@ -45,11 +45,11 @@ export default function StockTradingInterface() {
         <div className="flex">
           <button
             className={`flex-1 py-4 text-center font-medium ${
-              activeTab === "해외잡고" ? "border-b-2 border-orange-400" : ""
+              activeTab === "해외잔고" ? "border-b-2 border-orange-400" : ""
             }`}
-            onClick={() => setActiveTab("해외잡고")}
+            onClick={() => setActiveTab("해외잔고")}
           >
-            해외잡고
+            해외잔고
           </button>
           <button
             className={`flex-1 py-4 text-center font-medium ${
