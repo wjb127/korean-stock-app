@@ -163,11 +163,11 @@ export default function StockTradingInterface() {
       <div className="bg-white">
         {/* Table Header - Horizontally Scrollable */}
         <div className="overflow-x-auto">
-          <table className="min-w-[800px] w-full">
+          <table className="min-w-[1200px] w-full">
             <thead>
               <tr className="bg-gray-50 text-xs text-gray-600">
                 {/* First row columns */}
-                <th rowSpan={2} className="p-3 text-left font-normal border-b border-gray-200">
+                <th className="p-3 text-left font-normal border-b border-gray-200">
                   <div className="flex items-center gap-1">
                     종목명 <ChevronDown className="w-3 h-3" />
                   </div>
@@ -185,6 +185,21 @@ export default function StockTradingInterface() {
                 <th className="p-3 text-left font-normal border-b border-gray-200">
                   <div className="flex items-center gap-1">
                     잔고수량 <ChevronDown className="w-3 h-3" />
+                  </div>
+                </th>
+                <th className="p-3 text-left font-normal border-b border-gray-200">
+                  <div className="flex items-center gap-1">
+                    매입금액(원) <ChevronDown className="w-3 h-3" />
+                  </div>
+                </th>
+                <th className="p-3 text-left font-normal border-b border-gray-200">
+                  <div className="flex items-center gap-1">
+                    매입금액(외) <ChevronDown className="w-3 h-3" />
+                  </div>
+                </th>
+                <th className="p-3 text-left font-normal border-b border-gray-200">
+                  <div className="flex items-center gap-1">
+                    매입환율 <ChevronDown className="w-3 h-3" />
                   </div>
                 </th>
                 <th rowSpan={2} className="p-3 text-left font-normal border-b border-gray-200">
@@ -215,6 +230,21 @@ export default function StockTradingInterface() {
                     매도가능수량 <ChevronDown className="w-3 h-3" />
                   </div>
                 </th>
+                <th className="p-3 text-left font-normal border-b border-gray-200">
+                  <div className="flex items-center gap-1">
+                    평가금액(원) <ChevronDown className="w-3 h-3" />
+                  </div>
+                </th>
+                <th className="p-3 text-left font-normal border-b border-gray-200">
+                  <div className="flex items-center gap-1">
+                    평가금액(외) <ChevronDown className="w-3 h-3" />
+                  </div>
+                </th>
+                <th className="p-3 text-left font-normal border-b border-gray-200">
+                  <div className="flex items-center gap-1">
+                    현재환율 <ChevronDown className="w-3 h-3" />
+                  </div>
+                </th>
               </tr>
             </thead>
 
@@ -222,26 +252,44 @@ export default function StockTradingInterface() {
               {/* Stock Rows */}
               {stockData.map((stock, index) => (
                 <tr key={index} className="border-b hover:bg-gray-50">
+                  {/* 종목명/종목코드 */}
                   <td className="p-3">
                     <div className="font-medium text-sm">{stock.company}</div>
-                    <div className="text-xs text-blue-600">
-                      {stock.country} {stock.symbol}
-                    </div>
+                    <div className="text-xs text-blue-600">{stock.symbol}</div>
                   </td>
+                  {/* 평가손익(원)/평가수익률(원) */}
                   <td className="p-3">
                     <div className="text-red-500 font-medium text-right">{stock.currentPrice}</div>
-                    <div className="text-xs text-gray-500 text-right">{stock.symbol}</div>
-                  </td>
-                  <td className="p-3">
-                    <div className="text-red-500 font-medium text-right">{stock.currentPriceWon}</div>
                     <div className="text-red-500 text-xs text-right">{stock.gainPercent}</div>
                   </td>
+                  {/* 평가손익(외)/평가수익률(외) */}
                   <td className="p-3">
-                    <div className="text-sm text-right">-</div>
+                    <div className="text-red-500 font-medium text-right">{stock.currentPriceWon}</div>
                     <div className="text-red-500 text-xs text-right">{stock.gainPercentWon}</div>
                   </td>
+                  {/* 잔고수량/매도가능수량 */}
+                  <td className="p-3">
+                    <div className="text-sm text-right">10</div>
+                    <div className="text-xs text-right">10</div>
+                  </td>
+                  {/* 매입금액(원)/평가금액(원) */}
+                  <td className="p-3">
+                    <div className="text-sm text-right">{stock.avgPrice}</div>
+                    <div className="text-sm text-right">783,040</div>
+                  </td>
+                  {/* 매입금액(외)/평가금액(외) */}
+                  <td className="p-3">
+                    <div className="text-sm text-right">{stock.avgPriceWon}</div>
+                    <div className="text-sm text-right">544.38</div>
+                  </td>
+                  {/* 매입환율/현재환율 */}
+                  <td className="p-3">
+                    <div className="text-sm text-right">1,426.07</div>
+                    <div className="text-sm text-right">1,438.20</div>
+                  </td>
+                  {/* 보유비중 */}
                   <td className="p-3 text-right">
-                    <div className="text-sm">25%</div>
+                    <div className="text-sm">50%</div>
                   </td>
                 </tr>
               ))}
