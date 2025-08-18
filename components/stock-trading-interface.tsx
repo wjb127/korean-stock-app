@@ -176,58 +176,90 @@ export default function StockTradingInterface() {
       <div className="bg-white">
         {/* Table Header - Horizontally Scrollable */}
         <div className="overflow-x-auto">
-          <div className="min-w-[800px]">
-            {/* Header Row */}
-            <div className="grid grid-cols-7 gap-2 p-3 bg-gray-50 border-b text-xs text-gray-600">
-              <div className="flex items-center gap-1">
-                종목명 <ChevronDown className="w-3 h-3" />
-              </div>
-              <div className="flex items-center gap-1">
-                평가손익(원) <ChevronDown className="w-3 h-3" />
-              </div>
-              <div className="flex items-center gap-1">
-                평가손익(외) <ChevronDown className="w-3 h-3" />
-              </div>
-              <div className="flex items-center gap-1">
-                잔고수량 <ChevronDown className="w-3 h-3" />
-              </div>
-              <div className="text-center">종목코드</div>
-              <div className="flex items-center gap-1">
-                평가수익률(원) <ChevronDown className="w-3 h-3" />
-              </div>
-              <div className="flex items-center gap-1">
-                평가수익률(외) <ChevronDown className="w-3 h-3" />
-              </div>
-            </div>
-
-            {/* Stock Rows */}
-            {stockData.map((stock, index) => (
-              <div key={index} className="grid grid-cols-7 gap-2 p-3 border-b hover:bg-gray-50">
-                <div>
-                  <div className="font-medium text-sm">{stock.company}</div>
-                  <div className="text-xs text-blue-600">
-                    {stock.country} {stock.symbol}
+          <table className="min-w-[800px] w-full">
+            <thead>
+              <tr className="bg-gray-50 text-xs text-gray-600">
+                {/* First row columns */}
+                <th rowSpan={2} className="p-3 text-left font-normal border-b border-gray-200">
+                  <div className="flex items-center gap-1">
+                    종목명 <ChevronDown className="w-3 h-3" />
                   </div>
-                </div>
-                <div className="text-right">
-                  <div className="text-red-500 font-medium">{stock.currentPrice}</div>
-                </div>
-                <div className="text-right">
-                  <div className="text-red-500 font-medium">{stock.currentPriceWon}</div>
-                </div>
-                <div className="text-right">
-                  <div className="text-sm">-</div>
-                </div>
-                <div className="text-center text-xs text-gray-500">{stock.symbol}</div>
-                <div className="text-right">
-                  <div className="text-red-500 font-medium">{stock.gainPercent}</div>
-                </div>
-                <div className="text-right">
-                  <div className="text-red-500 font-medium">{stock.gainPercentWon}</div>
-                </div>
-              </div>
-            ))}
-          </div>
+                </th>
+                <th className="p-3 text-left font-normal border-b border-gray-200">
+                  <div className="flex items-center gap-1">
+                    평가손익(원) <ChevronDown className="w-3 h-3" />
+                  </div>
+                </th>
+                <th className="p-3 text-left font-normal border-b border-gray-200">
+                  <div className="flex items-center gap-1">
+                    평가손익(외) <ChevronDown className="w-3 h-3" />
+                  </div>
+                </th>
+                <th className="p-3 text-left font-normal border-b border-gray-200">
+                  <div className="flex items-center gap-1">
+                    잔고수량 <ChevronDown className="w-3 h-3" />
+                  </div>
+                </th>
+                <th rowSpan={2} className="p-3 text-left font-normal border-b border-gray-200">
+                  <div className="flex items-center gap-1">
+                    보유비중 <ChevronDown className="w-3 h-3" />
+                  </div>
+                </th>
+              </tr>
+              <tr className="bg-gray-50 text-xs text-gray-500">
+                {/* Second row columns */}
+                <th className="p-3 text-left font-normal border-b border-gray-200">
+                  <div className="flex items-center gap-1">
+                    종목코드 <ChevronDown className="w-3 h-3" />
+                  </div>
+                </th>
+                <th className="p-3 text-left font-normal border-b border-gray-200">
+                  <div className="flex items-center gap-1">
+                    평가수익률(원) <ChevronDown className="w-3 h-3" />
+                  </div>
+                </th>
+                <th className="p-3 text-left font-normal border-b border-gray-200">
+                  <div className="flex items-center gap-1">
+                    평가수익률(외) <ChevronDown className="w-3 h-3" />
+                  </div>
+                </th>
+                <th className="p-3 text-left font-normal border-b border-gray-200">
+                  <div className="flex items-center gap-1">
+                    매도가능수량 <ChevronDown className="w-3 h-3" />
+                  </div>
+                </th>
+              </tr>
+            </thead>
+
+            <tbody>
+              {/* Stock Rows */}
+              {stockData.map((stock, index) => (
+                <tr key={index} className="border-b hover:bg-gray-50">
+                  <td className="p-3">
+                    <div className="font-medium text-sm">{stock.company}</div>
+                    <div className="text-xs text-blue-600">
+                      {stock.country} {stock.symbol}
+                    </div>
+                  </td>
+                  <td className="p-3">
+                    <div className="text-red-500 font-medium text-right">{stock.currentPrice}</div>
+                    <div className="text-xs text-gray-500 text-right">{stock.symbol}</div>
+                  </td>
+                  <td className="p-3">
+                    <div className="text-red-500 font-medium text-right">{stock.currentPriceWon}</div>
+                    <div className="text-red-500 text-xs text-right">{stock.gainPercent}</div>
+                  </td>
+                  <td className="p-3">
+                    <div className="text-sm text-right">-</div>
+                    <div className="text-red-500 text-xs text-right">{stock.gainPercentWon}</div>
+                  </td>
+                  <td className="p-3 text-right">
+                    <div className="text-sm">25%</div>
+                  </td>
+                </tr>
+              ))}
+            </tbody>
+          </table>
         </div>
       </div>
 
@@ -241,49 +273,60 @@ export default function StockTradingInterface() {
       {/* Bottom Navigation */}
       <div className="fixed bottom-0 left-0 right-0 bg-gray-900 text-white">
         <div className="max-w-md mx-auto">
-          <div className="grid grid-cols-5 py-2">
+          <div className="grid grid-cols-6 py-2">
+            {/* Hamburger Menu */}
             <button className="flex flex-col items-center py-2">
               <div className="w-6 h-6 mb-1">
                 <svg viewBox="0 0 24 24" fill="currentColor" className="w-full h-full">
-                  <path d="M3 13h2v-2H3v2zm0 4h2v-2H3v2zm2 4v-2H3a2 2 0 0 0 2 2zM3 9h2V7H3v2zm12 12h2v-2h-2v2zm4-18H9a2 2 0 0 0-2 2v10a2 2 0 0 0 2 2h10a2 2 0 0 0 2-2V5a2 2 0 0 0-2-2zm0 12H9V5h10v10z" />
+                  <path d="M3 18h18v-2H3v2zm0-5h18v-2H3v2zm0-7v2h18V6H3z" />
                 </svg>
               </div>
-              <span className="text-xs">HOME</span>
+              <span className="text-[10px]"></span>
             </button>
+            {/* HOME */}
             <button className="flex flex-col items-center py-2">
               <div className="w-6 h-6 mb-1">
                 <svg viewBox="0 0 24 24" fill="currentColor" className="w-full h-full">
-                  <path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z" />
+                  <path d="M10 20v-6h4v6h5v-8h3L12 3 2 12h3v8z" />
                 </svg>
               </div>
-              <span className="text-xs">관심그룹</span>
+              <span className="text-[10px]">HOME</span>
             </button>
+            {/* 관심그룹 */}
             <button className="flex flex-col items-center py-2">
               <div className="w-6 h-6 mb-1">
                 <svg viewBox="0 0 24 24" fill="currentColor" className="w-full h-full">
-                  <path d="M13 3a9 9 0 0 0-9 9H1l3.89 3.89.07.14L9 12H6c0-3.87 3.13-7 7-7s7 3.13 7 7-3.13 7-7 7c-1.93 0-3.68-.79-4.94-2.06l-1.42 1.42A8.954 8.954 0 0 0 13 21a9 9 0 0 0 0-18z" />
+                  <path d="M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 5.42 4.42 3 7.5 3c1.74 0 3.41.81 4.5 2.09C13.09 3.81 14.76 3 16.5 3 19.58 3 22 5.42 22 8.5c0 3.78-3.4 6.86-8.55 11.54L12 21.35z" />
                 </svg>
               </div>
-              <span className="text-xs">즉시현재가</span>
+              <span className="text-[10px]">관심<br/>그룹</span>
             </button>
+            {/* 주식현재가 */}
+            <button className="flex flex-col items-center py-2">
+              <div className="w-6 h-6 mb-1">
+                <svg viewBox="0 0 24 24" fill="currentColor" className="w-full h-full">
+                  <path d="M16 6l2.29 2.29-4.88 4.88-4-4L2 16.59 3.41 18l6-6 4 4 6.3-6.29L22 12V6z" />
+                </svg>
+              </div>
+              <span className="text-[10px]">주식<br/>현재가</span>
+            </button>
+            {/* 국내주식 주문 */}
+            <button className="flex flex-col items-center py-2">
+              <div className="w-6 h-6 mb-1">
+                <svg viewBox="0 0 24 24" fill="currentColor" className="w-full h-full">
+                  <path d="M14 2H6c-1.1 0-1.99.9-1.99 2L4 20c0 1.1.89 2 1.99 2H18c1.1 0 2-.9 2-2V8l-6-6zm2 16H8v-2h8v2zm0-4H8v-2h8v2zm-3-5V3.5L18.5 9H13z" />
+                </svg>
+              </div>
+              <span className="text-[10px]">국내주식<br/>주문</span>
+            </button>
+            {/* 국내주식 잔고·손익 */}
             <button className="flex flex-col items-center py-2">
               <div className="w-6 h-6 mb-1">
                 <svg viewBox="0 0 24 24" fill="currentColor" className="w-full h-full">
                   <path d="M19 3H5c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h14c1.1 0 2-.9 2-2V5c0-1.1-.9-2-2-2zM9 17H7v-7h2v7zm4 0h-2V7h2v10zm4 0h-2v-4h2v4z" />
                 </svg>
               </div>
-              <span className="text-xs">국내주식</span>
-            </button>
-            <button className="flex flex-col items-center py-2">
-              <div className="w-6 h-6 mb-1 relative">
-                <svg viewBox="0 0 24 24" fill="currentColor" className="w-full h-full">
-                  <path d="M19 3H5c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h14c1.1 0 2-.9 2-2V5c0-1.1-.9-2-2-2zm-5 14H7v-2h7v2zm3-4H7v-2h10v2zm0-4H7V7h10v2z" />
-                </svg>
-                <div className="absolute -top-1 -right-1 w-4 h-4 bg-blue-500 rounded text-xs flex items-center justify-center">
-                  📊
-                </div>
-              </div>
-              <span className="text-xs">국내주식잔고·손</span>
+              <span className="text-[10px]">국내주식<br/>잔고·손익</span>
             </button>
           </div>
         </div>
