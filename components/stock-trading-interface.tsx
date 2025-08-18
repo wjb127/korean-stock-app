@@ -31,19 +31,6 @@ const stockData = [
     totalGainPercent: "72.18%",
     totalGainPercentWon: "68.45%",
   },
-  {
-    company: "마이크로소프트",
-    country: "미국",
-    symbol: "MSFT",
-    currentPrice: "425,680",
-    currentPriceWon: "296.12",
-    gainPercent: "28.45%",
-    gainPercentWon: "25.78%",
-    avgPrice: "331,250",
-    avgPriceWon: "230.45",
-    totalGainPercent: "65.32%",
-    totalGainPercentWon: "62.18%",
-  },
 ]
 
 export default function StockTradingInterface() {
