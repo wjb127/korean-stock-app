@@ -1,4 +1,4 @@
-import StockTradingInterface from "@/components/stock-trading-interface"
+import StockTradingInterface from "../components/stock-trading-interface"
 
 export default function Home() {
   return (
