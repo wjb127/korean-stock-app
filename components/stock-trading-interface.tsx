@@ -130,35 +130,46 @@ export default function StockTradingInterface() {
         </div>
       </div>
 
-      {/* Summary Cards */}
+      {/* Summary Cards - 2x3 Grid */}
       <div className="px-4 pb-4">
-        <div className="grid grid-cols-3 gap-2 mb-4">
-          <div className="bg-white p-3 rounded-lg border">
-            <div className="text-xs text-gray-500 mb-1">매입금액</div>
-            <div className="text-right">
-              <div className="text-lg font-medium">원</div>
-              <div className="text-xs text-gray-500">손익</div>
-            </div>
-          </div>
-          <div className="bg-white p-3 rounded-lg border">
-            <div className="text-xs text-gray-500 mb-1">평가금액</div>
-            <div className="text-right">
-              <div className="text-lg font-medium">원</div>
-              <div className="text-xs text-gray-500 flex items-center justify-end gap-1">
-                수익률 <Share2 className="w-3 h-3" />
-              </div>
-            </div>
-          </div>
-          <div className="bg-white p-3 rounded-lg border">
-            <div className="text-xs text-gray-500 mb-1">추정자산</div>
-            <div className="text-right">
-              <div className="text-lg font-medium">원</div>
-              <div className="text-xs text-gray-500">대출가능</div>
-            </div>
-          </div>
+        <div className="bg-white rounded-lg border border-gray-200 overflow-hidden">
+          <table className="w-full">
+            <tbody>
+              {/* First Row */}
+              <tr className="border-b border-gray-200">
+                <td className="p-3 text-xs text-gray-500 border-r border-gray-200">매입금액</td>
+                <td className="p-3 text-base font-semibold text-right border-r border-gray-200">—원</td>
+                <td className="p-3 text-xs text-gray-500 border-r border-gray-200">손익</td>
+                <td className="p-3 text-base font-semibold text-right text-red-500">—원</td>
+              </tr>
+              
+              {/* Second Row */}
+              <tr className="border-b border-gray-200">
+                <td className="p-3 text-xs text-gray-500 border-r border-gray-200">평가금액</td>
+                <td className="p-3 text-base font-semibold text-right border-r border-gray-200">—원</td>
+                <td className="p-3 text-xs text-gray-500 border-r border-gray-200">
+                  <div className="flex items-center gap-1">
+                    수익률 <Share2 className="w-3 h-3 text-orange-400" />
+                  </div>
+                </td>
+                <td className="p-3 text-base font-semibold text-right">—%</td>
+              </tr>
+              
+              {/* Third Row */}
+              <tr>
+                <td className="p-3 text-xs text-gray-500 border-r border-gray-200">추정자산</td>
+                <td className="p-3 text-base font-semibold text-right border-r border-gray-200">——원</td>
+                <td className="p-3 text-xs text-gray-500 border-r border-gray-200">대출가능</td>
+                <td className="p-3">
+                  <button className="w-full text-xs bg-white border border-gray-300 rounded px-3 py-1.5 text-gray-600 hover:bg-gray-50">
+                    금액조회
+                  </button>
+                </td>
+              </tr>
+            </tbody>
+          </table>
         </div>
 
-        <Button className="w-full mb-4 bg-gray-100 text-gray-700 hover:bg-gray-200">금액조회</Button>
       </div>
 
       {/* Stock Table */}
