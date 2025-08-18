@@ -2,7 +2,7 @@
 
 import { useState } from "react"
 import { ChevronDown, Info, ChevronRight, Share2, ExternalLink } from "lucide-react"
-import { Button } from "@/components/ui/button"
+import { Button } from "./ui/button"
 
 const stockData = [
   {
