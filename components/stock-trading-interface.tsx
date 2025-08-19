@@ -78,7 +78,7 @@ export default function StockTradingInterface() {
             {["전체", "외화", "원화"].map((type) => (
               <button
                 key={type}
-                className={`px-4 py-3 text-sm font-medium ${
+                className={`px-2 py-3 text-xs font-medium whitespace-nowrap ${
                   currencyFilter === type ? "bg-gray-600 text-white" : "bg-white text-gray-700 hover:bg-gray-50"
                 }`}
                 onClick={() => setCurrencyFilter(type)}
