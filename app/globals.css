@@ -119,4 +119,9 @@
   body {
     @apply bg-background text-foreground;
   }
+  
+  /* Apply tabular-nums to all numeric content */
+  .tabular-nums {
+    font-variant-numeric: tabular-nums;
+  }
 }

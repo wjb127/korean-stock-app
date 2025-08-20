@@ -124,29 +124,29 @@ export default function StockTradingInterface() {
             <tbody>
               {/* First Row */}
               <tr className="border-b border-gray-200">
-                <td className="p-3 text-xs text-gray-500 border-r border-gray-200">매입금액</td>
-                <td className="p-3 text-base font-semibold text-right border-r border-gray-200">—원</td>
-                <td className="p-3 text-xs text-gray-500 border-r border-gray-200">손익</td>
-                <td className="p-3 text-base font-semibold text-right text-red-500">—원</td>
+                <td className="p-3 text-xs text-gray-600 font-normal border-r border-gray-200">매입금액</td>
+                <td className="p-3 text-base font-medium text-right border-r border-gray-200 tabular-nums">—원</td>
+                <td className="p-3 text-xs text-gray-600 font-normal border-r border-gray-200">손익</td>
+                <td className="p-3 text-base font-medium text-right text-red-500 tabular-nums">—원</td>
               </tr>
               
               {/* Second Row */}
               <tr className="border-b border-gray-200">
-                <td className="p-3 text-xs text-gray-500 border-r border-gray-200">평가금액</td>
-                <td className="p-3 text-base font-semibold text-right border-r border-gray-200">—원</td>
-                <td className="p-3 text-xs text-gray-500 border-r border-gray-200">
+                <td className="p-3 text-xs text-gray-600 font-normal border-r border-gray-200">평가금액</td>
+                <td className="p-3 text-base font-medium text-right border-r border-gray-200 tabular-nums">—원</td>
+                <td className="p-3 text-xs text-gray-600 font-normal border-r border-gray-200">
                   <div className="flex items-center gap-1">
                     수익률 <Share2 className="w-3 h-3 text-orange-400" />
                   </div>
                 </td>
-                <td className="p-3 text-base font-semibold text-right">—%</td>
+                <td className="p-3 text-base font-medium text-right tabular-nums">—%</td>
               </tr>
               
               {/* Third Row */}
               <tr>
-                <td className="p-3 text-xs text-gray-500 border-r border-gray-200">추정자산</td>
-                <td className="p-3 text-base font-semibold text-right border-r border-gray-200">——원</td>
-                <td className="p-3 text-xs text-gray-500 border-r border-gray-200">대출가능</td>
+                <td className="p-3 text-xs text-gray-600 font-normal border-r border-gray-200">추정자산</td>
+                <td className="p-3 text-base font-medium text-right border-r border-gray-200 tabular-nums">——원</td>
+                <td className="p-3 text-xs text-gray-600 font-normal border-r border-gray-200">대출가능</td>
                 <td className="p-3">
                   <button className="w-full text-xs bg-white border border-gray-300 rounded px-3 py-1.5 text-gray-600 hover:bg-gray-50">
                     금액조회
@@ -253,43 +253,43 @@ export default function StockTradingInterface() {
               {stockData.map((stock, index) => (
                 <tr key={index} className="border-b hover:bg-gray-50">
                   {/* 종목명/종목코드 */}
-                  <td className="p-3 border-r-2 border-gray-400">
+                  <td className="py-4 px-3 border-r-2 border-gray-400">
                     <div className="font-medium text-sm">{stock.company}</div>
-                    <div className="text-xs text-blue-600">{stock.symbol}</div>
+                    <div className="text-xs text-blue-600 mt-1">{stock.symbol}</div>
                   </td>
                   {/* 평가손익(원)/평가수익률(원) */}
-                  <td className="p-3">
-                    <div className="text-red-500 font-medium text-right">{stock.currentPrice}</div>
-                    <div className="text-red-500 text-xs text-right">{stock.gainPercent}</div>
+                  <td className="py-4 px-3">
+                    <div className="text-red-500 font-medium text-right tabular-nums">{stock.currentPrice}</div>
+                    <div className="text-red-500 text-xs text-right tabular-nums mt-1">{stock.gainPercent}</div>
                   </td>
                   {/* 평가손익(외)/평가수익률(외) */}
-                  <td className="p-3">
-                    <div className="text-red-500 font-medium text-right">{stock.currentPriceWon}</div>
-                    <div className="text-red-500 text-xs text-right">{stock.gainPercentWon}</div>
+                  <td className="py-4 px-3">
+                    <div className="text-red-500 font-medium text-right tabular-nums">{stock.currentPriceWon}</div>
+                    <div className="text-red-500 text-xs text-right tabular-nums mt-1">{stock.gainPercentWon}</div>
                   </td>
                   {/* 잔고수량/매도가능수량 */}
-                  <td className="p-3">
-                    <div className="text-sm text-right">10</div>
-                    <div className="text-xs text-right">10</div>
+                  <td className="py-4 px-3">
+                    <div className="text-sm text-right tabular-nums">10</div>
+                    <div className="text-xs text-right tabular-nums mt-1">10</div>
                   </td>
                   {/* 매입금액(원)/평가금액(원) */}
-                  <td className="p-3">
-                    <div className="text-sm text-right">{stock.avgPrice}</div>
-                    <div className="text-sm text-right">783,040</div>
+                  <td className="py-4 px-3">
+                    <div className="text-sm text-right tabular-nums">{stock.avgPrice}</div>
+                    <div className="text-sm text-right tabular-nums mt-1">783,040</div>
                   </td>
                   {/* 매입금액(외)/평가금액(외) */}
-                  <td className="p-3">
-                    <div className="text-sm text-right">{stock.avgPriceWon}</div>
-                    <div className="text-sm text-right">544.38</div>
+                  <td className="py-4 px-3">
+                    <div className="text-sm text-right tabular-nums">{stock.avgPriceWon}</div>
+                    <div className="text-sm text-right tabular-nums mt-1">544.38</div>
                   </td>
                   {/* 매입환율/현재환율 */}
-                  <td className="p-3">
-                    <div className="text-sm text-right">1,426.07</div>
-                    <div className="text-sm text-right">1,438.20</div>
+                  <td className="py-4 px-3">
+                    <div className="text-sm text-right tabular-nums">1,426.07</div>
+                    <div className="text-sm text-right tabular-nums mt-1">1,438.20</div>
                   </td>
                   {/* 보유비중 */}
-                  <td className="p-3 text-right">
-                    <div className="text-sm">50%</div>
+                  <td className="py-4 px-3 text-right">
+                    <div className="text-sm tabular-nums">50%</div>
                   </td>
                 </tr>
               ))}
