@@ -22,10 +22,10 @@ const stockData = [
     company: "테슬라",
     country: "미국",
     symbol: "TSLA",
-    currentPrice: "287,450",
-    currentPriceWon: "199.82",
-    gainPercent: "42.15%",
-    gainPercentWon: "38.92%",
+    currentPrice: "435,026",
+    currentPriceWon: "305.36",
+    gainPercent: "90.90%",
+    gainPercentWon: "85.87%",
     avgPrice: "398,120",
     avgPriceWon: "278.45",
     totalGainPercent: "72.18%",
@@ -124,30 +124,30 @@ export default function StockTradingInterface() {
             <tbody>
               {/* First Row */}
               <tr className="border-b border-gray-200">
-                <td className="py-2 px-3 text-xs text-gray-600 font-normal border-r border-gray-200">매입금액</td>
-                <td className="py-2 px-3 text-base font-medium text-right border-r border-gray-200 tabular-nums">—원</td>
-                <td className="py-2 px-3 text-xs text-gray-600 font-normal border-r border-gray-200">손익</td>
-                <td className="py-2 px-3 text-base font-medium text-right text-red-500 tabular-nums">—원</td>
+                <td className="py-2 px-1 text-xs text-gray-600 font-normal border-r border-gray-200">매입금액</td>
+                <td className="py-2 px-1 text-base font-medium text-right border-r border-gray-200 tabular-nums">—원</td>
+                <td className="py-2 px-1 text-xs text-gray-600 font-normal border-r border-gray-200">손익</td>
+                <td className="py-2 px-1 text-base font-medium text-right text-red-500 tabular-nums">—원</td>
               </tr>
               
               {/* Second Row */}
               <tr className="border-b border-gray-200">
-                <td className="py-2 px-3 text-xs text-gray-600 font-normal border-r border-gray-200">평가금액</td>
-                <td className="py-2 px-3 text-base font-medium text-right border-r border-gray-200 tabular-nums">—원</td>
-                <td className="py-2 px-3 text-xs text-gray-600 font-normal border-r border-gray-200">
+                <td className="py-2 px-1 text-xs text-gray-600 font-normal border-r border-gray-200">평가금액</td>
+                <td className="py-2 px-1 text-base font-medium text-right border-r border-gray-200 tabular-nums">—원</td>
+                <td className="py-2 px-1 text-xs text-gray-600 font-normal border-r border-gray-200">
                   <div className="flex items-center gap-1">
                     수익률 <Share2 className="w-3 h-3 text-orange-400" />
                   </div>
                 </td>
-                <td className="py-2 px-3 text-base font-medium text-right tabular-nums">—%</td>
+                <td className="py-2 px-1 text-base font-medium text-right tabular-nums">—%</td>
               </tr>
               
               {/* Third Row */}
               <tr>
-                <td className="py-2 px-3 text-xs text-gray-600 font-normal border-r border-gray-200">추정자산</td>
-                <td className="py-2 px-3 text-base font-medium text-right border-r border-gray-200 tabular-nums">——원</td>
-                <td className="py-2 px-3 text-xs text-gray-600 font-normal border-r border-gray-200">대출가능</td>
-                <td className="py-2 px-3">
+                <td className="py-2 px-1 text-xs text-gray-600 font-normal border-r border-gray-200">추정자산</td>
+                <td className="py-2 px-1 text-base font-medium text-right border-r border-gray-200 tabular-nums">——원</td>
+                <td className="py-2 px-1 text-xs text-gray-600 font-normal border-r border-gray-200">대출가능</td>
+                <td className="py-2 px-1">
                   <button className="w-full text-xs bg-white border border-gray-300 rounded px-3 py-1.5 text-gray-600 hover:bg-gray-50">
                     금액조회
                   </button>
@@ -163,46 +163,46 @@ export default function StockTradingInterface() {
       <div className="bg-white">
         {/* Table Header - Horizontally Scrollable */}
         <div className="overflow-x-auto">
-          <table className="min-w-[1200px] w-full">
+          <table className="min-w-[1000px] w-full table-fixed">
             <thead>
               <tr className="bg-gray-50 text-xs text-gray-600">
                 {/* First row columns */}
-                <th className="py-2 px-3 text-left font-normal border-b border-r-2 border-gray-200 border-r-gray-400">
+                <th className="py-2 px-1 text-left font-normal border-b border-r-2 border-gray-200 border-r-gray-400 w-20">
                   <div className="flex items-center gap-1">
                     종목명 <ChevronDown className="w-3 h-3" />
                   </div>
                 </th>
-                <th className="py-2 px-2 text-right font-normal border-b border-r border-gray-200">
+                <th className="py-2 px-1 text-right font-normal border-b border-r border-gray-200 w-24">
                   <div className="flex items-center justify-end gap-1">
                     평가손익(원) <ChevronDown className="w-3 h-3" />
                   </div>
                 </th>
-                <th className="py-2 px-3 text-right font-normal border-b border-r border-gray-200">
+                <th className="py-2 px-1 text-right font-normal border-b border-r border-gray-200 w-24">
                   <div className="flex items-center justify-end gap-1">
                     평가손익(외) <ChevronDown className="w-3 h-3" />
                   </div>
                 </th>
-                <th className="py-2 px-3 text-right font-normal border-b border-r border-gray-200">
+                <th className="py-2 px-1 text-right font-normal border-b border-r border-gray-200 w-20">
                   <div className="flex items-center justify-end gap-1">
                     잔고수량 <ChevronDown className="w-3 h-3" />
                   </div>
                 </th>
-                <th className="py-2 px-3 text-right font-normal border-b border-r border-gray-200">
+                <th className="py-2 px-1 text-right font-normal border-b border-r border-gray-200 w-24">
                   <div className="flex items-center justify-end gap-1">
                     매입금액(원) <ChevronDown className="w-3 h-3" />
                   </div>
                 </th>
-                <th className="py-2 px-3 text-right font-normal border-b border-r border-gray-200">
+                <th className="py-2 px-1 text-right font-normal border-b border-r border-gray-200 w-24">
                   <div className="flex items-center justify-end gap-1">
                     매입금액(외) <ChevronDown className="w-3 h-3" />
                   </div>
                 </th>
-                <th className="py-2 px-3 text-right font-normal border-b border-r border-gray-200">
+                <th className="py-2 px-1 text-right font-normal border-b border-r border-gray-200 w-20">
                   <div className="flex items-center justify-end gap-1">
                     매입환율 <ChevronDown className="w-3 h-3" />
                   </div>
                 </th>
-                <th rowSpan={2} className="py-2 px-3 text-right font-normal border-b border-gray-200">
+                <th rowSpan={2} className="py-2 px-1 text-right font-normal border-b border-gray-200 w-16">
                   <div className="flex items-center justify-end gap-1">
                     보유비중 <ChevronDown className="w-3 h-3" />
                   </div>
@@ -210,37 +210,37 @@ export default function StockTradingInterface() {
               </tr>
               <tr className="bg-gray-50 text-xs text-gray-500">
                 {/* Second row columns */}
-                <th className="py-2 px-3 text-left font-normal border-b border-r-2 border-gray-200 border-r-gray-400">
+                <th className="py-2 px-1 text-left font-normal border-b border-r-2 border-gray-200 border-r-gray-400 w-20">
                   <div className="flex items-center gap-1">
                     종목코드 <ChevronDown className="w-3 h-3" />
                   </div>
                 </th>
-                <th className="py-2 px-2 text-right font-normal border-b border-r border-gray-200">
+                <th className="py-2 px-1 text-right font-normal border-b border-r border-gray-200">
                   <div className="flex items-center justify-end gap-1">
                     평가수익률(원) <ChevronDown className="w-3 h-3" />
                   </div>
                 </th>
-                <th className="py-2 px-3 text-right font-normal border-b border-r border-gray-200">
+                <th className="py-2 px-1 text-right font-normal border-b border-r border-gray-200">
                   <div className="flex items-center justify-end gap-1">
                     평가수익률(외) <ChevronDown className="w-3 h-3" />
                   </div>
                 </th>
-                <th className="py-2 px-3 text-right font-normal border-b border-r border-gray-200">
+                <th className="py-2 px-1 text-right font-normal border-b border-r border-gray-200">
                   <div className="flex items-center justify-end gap-1">
                     매도가능수량 <ChevronDown className="w-3 h-3" />
                   </div>
                 </th>
-                <th className="py-2 px-3 text-right font-normal border-b border-r border-gray-200">
+                <th className="py-2 px-1 text-right font-normal border-b border-r border-gray-200">
                   <div className="flex items-center justify-end gap-1">
                     평가금액(원) <ChevronDown className="w-3 h-3" />
                   </div>
                 </th>
-                <th className="py-2 px-3 text-right font-normal border-b border-r border-gray-200">
+                <th className="py-2 px-1 text-right font-normal border-b border-r border-gray-200">
                   <div className="flex items-center justify-end gap-1">
                     평가금액(외) <ChevronDown className="w-3 h-3" />
                   </div>
                 </th>
-                <th className="py-2 px-3 text-right font-normal border-b border-r border-gray-200">
+                <th className="py-2 px-1 text-right font-normal border-b border-r border-gray-200">
                   <div className="flex items-center justify-end gap-1">
                     현재환율 <ChevronDown className="w-3 h-3" />
                   </div>
@@ -253,42 +253,42 @@ export default function StockTradingInterface() {
               {stockData.map((stock, index) => (
                 <tr key={index} className="border-b hover:bg-gray-50">
                   {/* 종목명/종목코드 */}
-                  <td className="py-4 px-3 border-r-2 border-gray-400">
+                  <td className="py-4 px-1 border-r-2 border-gray-400">
                     <div className="font-medium text-sm">{stock.company}</div>
                     <div className="text-xs text-blue-600 mt-1">{stock.symbol}</div>
                   </td>
                   {/* 평가손익(원)/평가수익률(원) */}
-                  <td className="py-4 px-2 text-right border-r border-gray-200">
+                  <td className="py-4 px-1 text-right border-r border-gray-200">
                     <div className="text-red-500 font-medium tabular-nums">{stock.currentPrice}</div>
                     <div className="text-red-500 text-xs tabular-nums mt-1">{stock.gainPercent}</div>
                   </td>
                   {/* 평가손익(외)/평가수익률(외) */}
-                  <td className="py-4 px-3 text-right border-r border-gray-200">
+                  <td className="py-4 px-1 text-right border-r border-gray-200">
                     <div className="text-red-500 font-medium tabular-nums">{stock.currentPriceWon}</div>
                     <div className="text-red-500 text-xs tabular-nums mt-1">{stock.gainPercentWon}</div>
                   </td>
                   {/* 잔고수량/매도가능수량 */}
-                  <td className="py-4 px-3 text-right border-r border-gray-200">
-                    <div className="text-sm tabular-nums">10</div>
-                    <div className="text-xs tabular-nums mt-1">10</div>
+                  <td className="py-4 px-1 text-right border-r border-gray-200">
+                    <div className="text-sm tabular-nums"></div>
+                    <div className="text-xs tabular-nums mt-1"></div>
                   </td>
                   {/* 매입금액(원)/평가금액(원) */}
-                  <td className="py-4 px-3 text-right border-r border-gray-200">
+                  <td className="py-4 px-1 text-right border-r border-gray-200">
                     <div className="text-sm tabular-nums">{stock.avgPrice}</div>
                     <div className="text-sm tabular-nums mt-1">783,040</div>
                   </td>
                   {/* 매입금액(외)/평가금액(외) */}
-                  <td className="py-4 px-3 text-right border-r border-gray-200">
+                  <td className="py-4 px-1 text-right border-r border-gray-200">
                     <div className="text-sm tabular-nums">{stock.avgPriceWon}</div>
                     <div className="text-sm tabular-nums mt-1">544.38</div>
                   </td>
                   {/* 매입환율/현재환율 */}
-                  <td className="py-4 px-3 text-right border-r border-gray-200">
+                  <td className="py-4 px-1 text-right border-r border-gray-200">
                     <div className="text-sm tabular-nums">1,426.07</div>
                     <div className="text-sm tabular-nums mt-1">1,438.20</div>
                   </td>
                   {/* 보유비중 */}
-                  <td className="py-4 px-3 text-right">
+                  <td className="py-4 px-1 text-right">
                     <div className="text-sm tabular-nums">50%</div>
                   </td>
                 </tr>
