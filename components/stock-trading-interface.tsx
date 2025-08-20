@@ -44,7 +44,7 @@ export default function StockTradingInterface() {
       <div className="bg-blue-900 text-white">
         <div className="flex">
           <button
-            className={`flex-1 py-4 text-center font-medium ${
+            className={`flex-1 py-4 text-center font-semibold ${
               activeTab === "해외잔고" ? "border-b-2 border-orange-400" : ""
             }`}
             onClick={() => setActiveTab("해외잔고")}
@@ -52,7 +52,7 @@ export default function StockTradingInterface() {
             해외잔고
           </button>
           <button
-            className={`flex-1 py-4 text-center font-medium ${
+            className={`flex-1 py-4 text-center font-semibold ${
               activeTab === "매매손익" ? "border-b-2 border-orange-400" : ""
             }`}
             onClick={() => setActiveTab("매매손익")}
@@ -66,19 +66,19 @@ export default function StockTradingInterface() {
       <div className="p-4 bg-gray-50">
         <div className="flex gap-3 mb-4">
           {/* Filter Dropdown */}
-          <div className="flex-1">
+          <div className="w-24">
             <button className="w-full p-3 bg-white border border-gray-300 rounded-lg flex items-center justify-between">
-              <span className="text-gray-700">{filterType}</span>
+              <span className="text-gray-700 text-sm">{filterType}</span>
               <ChevronDown className="w-4 h-4 text-gray-500" />
             </button>
           </div>
 
           {/* Currency Filter Buttons */}
-          <div className="flex bg-white rounded-lg border border-gray-300 overflow-hidden">
+          <div className="flex bg-white rounded-lg border border-gray-300 overflow-hidden flex-1">
             {["전체", "외화", "원화"].map((type) => (
               <button
                 key={type}
-                className={`px-2 py-3 text-xs font-medium whitespace-nowrap ${
+                className={`flex-1 px-3 py-3 text-xs font-medium whitespace-nowrap ${
                   currencyFilter === type ? "bg-gray-600 text-white" : "bg-white text-gray-700 hover:bg-gray-50"
                 }`}
                 onClick={() => setCurrencyFilter(type)}
@@ -367,10 +367,6 @@ export default function StockTradingInterface() {
         </div>
       </div>
 
-      {/* Bottom Indicator */}
-      <div className="fixed bottom-1 left-1/2 transform -translate-x-1/2">
-        <div className="w-32 h-1 bg-white rounded-full"></div>
-      </div>
     </div>
   )
 }

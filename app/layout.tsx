@@ -24,9 +24,12 @@ export default function RootLayout({
         <style>{`
 html {
   font-family: "Apple SD Gothic Neo", -apple-system, BlinkMacSystemFont, "San Francisco", "Helvetica Neue", "Pretendard Variable", Pretendard, system-ui, "Segoe UI", "Noto Sans KR", "Malgun Gothic", Roboto, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", sans-serif;
-  font-weight: 450;
+  font-weight: 500;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+}
+body {
+  font-weight: 500;
 }
         `}</style>
       </head>
